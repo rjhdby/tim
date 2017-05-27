@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="600.0" minWidth="800.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tim.Controller">
+    <padding>
+        <Insets top="8.0" />
+    </padding>
+    <children>
+        <TabPane layoutX="14.0" layoutY="14.0" prefHeight="566.0" prefWidth="763.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <tabs>
+                <Tab text="Требующие проверки">
+                    <content>
+                        <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="800">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="440.0" prefHeight="160.0" prefWidth="440.0" maxWidth="440.0">
+                                    <TableView fx:id="checkList" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                        <columns>
+                                            <TableColumn fx:id="name" prefWidth="120.0" text="Наименование" />
+                                            <TableColumn fx:id="date" prefWidth="200.0" text="Дата последней проверки" />
+                                            <TableColumn fx:id="loc" prefWidth="120.0" text="Расположение" />
+                                        </columns>
+                                    </TableView>
+                                </AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" fx:id="checkIn" onAction="#checkIn" text="Проверено" />
+                           </children></AnchorPane>
+                            </items>
+                        </SplitPane>
+
+                    </content>
+                </Tab>
+                <Tab text="Поиск и редактирование" />
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
