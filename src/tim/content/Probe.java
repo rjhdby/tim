@@ -1,11 +1,13 @@
 package tim.content;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Probe {
     public String name;
     public String location;
     public Date nextCheck;
+    SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
 
     public Probe(String name, String location, Date nextCheck) {
         this.name = name;
@@ -21,7 +23,7 @@ public class Probe {
         return location;
     }
 
-    public Date getNextCheck() {
-        return nextCheck;
+    public String getNextCheck() {
+        return dt.format(nextCheck);
     }
 }
