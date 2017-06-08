@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <AnchorPane minHeight="600.0" minWidth="800.0" xmlns="http://javafx.com/javafx/8.0.112"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="tim.controller.Controller">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="tim.controller.MainController">
     <padding>
         <Insets top="8.0"/>
     </padding>
@@ -15,62 +15,17 @@
             <tabs>
                 <Tab text="Требующие проверки">
                     <content>
-                        <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="800">
-                            <items>
-                                <AnchorPane maxWidth="440.0" minHeight="0.0" minWidth="440.0" prefHeight="160.0"
-                                            prefWidth="440.0">
-                                    <TableView fx:id="checkList" prefHeight="200.0" prefWidth="200.0"
-                                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                                               AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                        <columns>
-                                            <TableColumn fx:id="clName" prefWidth="120.0" text="Наименование"/>
-                                            <TableColumn fx:id="clDate" prefWidth="200.0"
-                                                         text="Дата следующей проверки"/>
-                                            <TableColumn fx:id="clLoc" prefWidth="120.0" text="Расположение"/>
-                                        </columns>
-                                    </TableView>
-                                </AnchorPane>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                    <children>
-                                        <Button fx:id="checkIn" disable="true" layoutX="14.0" layoutY="14.0"
-                                                mnemonicParsing="false" onAction="#checkIn" text="Проверено"/>
-                                    </children>
-                                </AnchorPane>
-                            </items>
-                        </SplitPane>
+                        <fx:include fx:id="checkTab" source="check_tab.fxml"/>
                     </content>
                 </Tab>
                 <Tab text="Поиск и редактирование">
                     <content>
-                        <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="800">
-                            <items>
-                                <AnchorPane maxWidth="440.0" minHeight="0.0" minWidth="440.0" prefHeight="160.0"
-                                            prefWidth="440.0">
-                                    <TableView fx:id="fullList" prefHeight="200.0" prefWidth="200.0"
-                                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                                               AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                        <columns>
-                                            <TableColumn fx:id="flName" prefWidth="120.0" text="Наименование"/>
-                                            <TableColumn fx:id="flDate" prefWidth="200.0"
-                                                         text="Дата следующей проверки"/>
-                                            <TableColumn fx:id="flLoc" prefWidth="120.0" text="Расположение"/>
-                                        </columns>
-                                    </TableView>
-                                </AnchorPane>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                    <children>
-                                        <TextField fx:id="searchName" layoutX="14.0" layoutY="14.0"/>
-                                        <TextField fx:id="searchLocation" layoutX="14.0" layoutY="47.0"/>
-                                        <Label layoutX="177.0" layoutY="18.0" text="Наименование"/>
-                                        <Label layoutX="177.0" layoutY="51.0" text="Расположение"/>
-                                        <Button layoutX="14.0" disable="true" fx:id="delete" layoutY="87.0"
-                                                mnemonicParsing="false" text="Удалить" onAction="#delete"/>
-                                        <Button layoutX="14.0" fx:id="add" layoutY="121.0"
-                                                mnemonicParsing="false" text="Добавить" onAction="#add"/>
-                                    </children>
-                                </AnchorPane>
-                            </items>
-                        </SplitPane>
+                        <fx:include fx:id="fullListTab" source="full_list_tab.fxml"/>
+                    </content>
+                </Tab>
+                <Tab text="">
+                    <content>
+
                     </content>
                 </Tab>
             </tabs>
