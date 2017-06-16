@@ -11,7 +11,7 @@
     <children>
         <TabPane layoutX="14.0" layoutY="14.0" prefHeight="566.0" prefWidth="763.0" tabClosingPolicy="UNAVAILABLE"
                  AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                 AnchorPane.topAnchor="0.0">
+                 AnchorPane.topAnchor="0.0" fx:id="tabPane">
             <tabs>
                 <Tab text="Требующие проверки">
                     <content>
@@ -23,9 +23,9 @@
                         <fx:include fx:id="fullListTab" source="full_list_tab.fxml"/>
                     </content>
                 </Tab>
-                <Tab text="">
+                <Tab text="Администрирование Базы">
                     <content>
-
+                        <fx:include fx:id="dbTab" source="db_tab.fxml"/>
                     </content>
                 </Tab>
             </tabs>

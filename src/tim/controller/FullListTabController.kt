@@ -10,7 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory
 import tim.content.Content
 import tim.content.Probe
 import tim.controller.dialogs.AddDialog
-import tim.controller.dialogs.DeleteDialog
+import tim.controller.dialogs.ConfirmDialog
 
 
 class FullListTabController {
@@ -23,9 +23,12 @@ class FullListTabController {
     @FXML lateinit private var flDate: TableColumn<Probe, String>
 
     @FXML lateinit private var delete: Button
+    @FXML lateinit private var restore: Button
 
     @FXML lateinit private var searchName: TextField
     @FXML lateinit private var searchLocation: TextField
+
+    private var lastDeleted: Probe? = null
 
     @FXML private fun initialize() {
         flName.cellValueFactory = PropertyValueFactory<Probe, String>("name")
@@ -39,11 +42,13 @@ class FullListTabController {
     }
 
     @FXML fun delete() {
-        DeleteDialog {
-            Content.delete(fullList.selectionModel.selectedItem.name)
+        ConfirmDialog({
+            lastDeleted = Content.find(fullList.selectionModel.selectedItem.name)
+            Content.delete(lastDeleted!!)
             delete.isDisable = true
+            restore.isDisable = false
             setUp()
-        }
+        }, "Удаление датчика")
     }
 
     @FXML fun add() {
@@ -51,6 +56,14 @@ class FullListTabController {
             Content.add(probe)
             setUp()
         }
+    }
+
+    @FXML fun restore() {
+        if (lastDeleted == null) return
+        Content.add(lastDeleted!!)
+        lastDeleted = null
+        restore.isDisable = true
+        setUp()
     }
 
     fun setUp() {
